@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Data Structures</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 20px 5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 12px;
+  background-color: #f1f1f1;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+}
+</style>
+</head>
+
+<body>
+	<div id = "header">
+	</div>
+
+	<h1>Data Structures</h1>
+	<p> This page contains a reference sheet of all data structures and important characteristics. It stretches from primitive structures to more advanced and nuanced uses. We also attempted to put the pros and cons and basic use cases for each structure. </p>
+
+
+<!-- Array Data Structure !-->
+  <div class="row">
+    <div class="card">
+      <h2> Array </h2>
+      <p> The Array is one of the simplest data structures. At time of declaration, the space required to store the array is reserved. Each entry can be accessed and modified in constant time. However, arrays have set size, so an insertion can overflow the array and require resizing, an expensive operation.
+      </p>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Access </h3>
+          <p> O(1) </p>
+        </div>
+      </div>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Search </h3>
+          <p> O(n) </p>
+        </div>
+      </div>
+
+      <div class = "column" style = "width: 50%">
+        <div class = "card">
+          <h3> Insert / Deletion </h3>
+          <p> O(1) (if array not full) </p>
+          <p> O(n) (if full) </p>
+          <p> <small> *Note O(n) cost can be amoritized to O(1) if array size is doubled upon insertion </small> </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<!-- Linked List Data Structure !-->
+
+  <div class="row">
+    <div class="card">
+      <h2> Linked List </h2>
+      <p> The linked list is an array-type data structure that enables inserting in constant time. In is accomplished by creating "nodes" with which each contains the stored value and a reference to the next node in the list. However, the data may be stored in separate parts of memory, meaning that you must step through the array for search.
+      </p>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Access </h3>
+          <p> O(n) </p>
+        </div>
+      </div>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Search </h3>
+          <p> O(n) </p>
+        </div>
+      </div>
+
+      <div class = "column" style = "width: 25%">
+        <div class = "card">
+          <h3> Insert / Deletion </h3>
+          <p> O(1) </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+	
+<!-- Stack Data Structure !-->
+
+  <div class="row">
+    <div class="card">
+      <h2> Stack </h2>
+      <p> A stack is a data struture with specific functionality - top(), push(), and pop(), to access the first element, push something on the stack, and remove the top element of the stack. Stacks are LIFO (last-in first-out). Important component for different algorithms. A stack can be implemented via a ListStack (where it is easy to pop and add at the head node), or ArrayStack, where is faster but may require regrowing since arrays are static-size.
+      </p>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Access </h3>
+          <p> O(n) </p>
+        </div>
+      </div>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Search </h3>
+          <p> O(n) </p>
+        </div>
+      </div>
+
+      <div class = "column" style = "width: 25%">
+        <div class = "card">
+          <h3> Insert / Deletion </h3>
+          <p> O(1) </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+<!-- Queue Data Structure !-->
+
+  <div class="row">
+    <div class="card">
+      <h2> Queue </h2>
+      <p> Queue is very similar to a real-life queue; a line for an event. Has FIFO ordering (first-in first-out), and supports operation empty(), front(), dequeue(), and enqueue(). Elements can only be inserted into the back of the structure and removed from the front. Implemented with ListQueue or ArrayQueue.
+      </p>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Access </h3>
+          <p> O(n) </p>
+        </div>
+      </div>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Search </h3>
+          <p> O(n) </p>
+        </div>
+      </div>
+
+      <div class = "column" style = "width: 25%">
+        <div class = "card">
+          <h3> Insert / Deletion </h3>
+          <p> O(1) </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Dequeue Data Structure !-->
+
+  <div class="row">
+    <div class="card">
+      <h2> Deque </h2>
+      <p> Short for double-ended queue, this data structure is the same as a queue, but now enables insertFront(), insertBack(), removeFront(), removeBack(). Can be implemented via ListQueue or ArrayQueue, but a ListQueue would require a doubly-linked list underlying structure.
+      </p>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Access </h3>
+          <p> O(n) </p>
+        </div>
+      </div>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Search </h3>
+          <p> O(n) </p>
+        </div>
+      </div>
+
+      <div class = "column" style = "width: 25%">
+        <div class = "card">
+          <h3> Insert / Deletion </h3>
+          <p> O(1) </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+<!-- Trees Data Structure !-->
+
+  <div class="row">
+    <div class="card">
+      <h2> Tree </h2>
+      <p> A tree is a node-based data structure where each node both contains data and n-pointers to children. When n=2, the tree is said to be a binary-tree. They are often used for sorting numbers, where the left of every node has values smaller than the node, and the right has larger values.
+      </p>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Access </h3>
+          <p> O(log n) </p>
+        </div>
+      </div>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Search </h3>
+          <p> O(log n) </p>
+        </div>
+      </div>
+
+      <div class = "column" style = "width: 25%">
+        <div class = "card">
+          <h3> Insert / Deletion </h3>
+          <p> O(log n) </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+<!-- Linked List Data Structure !-->
+
+  <div class="row">
+    <div class="card">
+      <h2> Graph </h2>
+      <p> A graph can be though of as a "lose" tree. Graphs are defined as a collection of nodes, each with a value and a set of pointers to nodes it is connected to. Often implmeneted with an array of nodes, with each node holding the data and in + out edges.
+      </p>
+    </div>
+  </div>
+
+  <!-- Linked List Data Structure !-->
+
+  <div class="row">
+    <div class="card">
+      <h2> Linked List </h2>
+      <p> The linked list is an array-type data structure that enables inserting in constant time. In is accomplished by creating "nodes" with which each contains the stored value and a reference to the next node in the list. However, the data may be stored in separate parts of memory, meaning that you must step through the array for search.
+      </p>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Access </h3>
+          <p> O(n) </p>
+        </div>
+      </div>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Search </h3>
+          <p> O(n) </p>
+        </div>
+      </div>
+
+      <div class = "column" style = "width: 25%">
+        <div class = "card">
+          <h3> Insert / Deletion </h3>
+          <p> O(1) </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
