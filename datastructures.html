@@ -217,7 +217,7 @@ body {
   </div>
 
 
-<!-- Trees Data Structure !-->
+<!-- Tree Data Structure !-->
 
   <div class="row">
     <div class="card">
@@ -250,7 +250,7 @@ body {
   </div>
 
 
-<!-- Linked List Data Structure !-->
+<!-- Graph Data Structure !-->
 
   <div class="row">
     <div class="card">
@@ -260,34 +260,284 @@ body {
     </div>
   </div>
 
-  <!-- Linked List Data Structure !-->
+  <!-- Heap Data Structure !-->
 
   <div class="row">
     <div class="card">
-      <h2> Linked List </h2>
-      <p> The linked list is an array-type data structure that enables inserting in constant time. In is accomplished by creating "nodes" with which each contains the stored value and a reference to the next node in the list. However, the data may be stored in separate parts of memory, meaning that you must step through the array for search.
+      <h2> Heap </h2>
+      <p> A heap is a tree with two properties enforced. 1. Shape: It is a complete binary tree (except bottom row). 2. Ordering: Each node is greater than its children. Can be implimented via nodes or in an array, with parent(i) being index i/2, and left-child(i) = 2i, right-child(i) = 2i + 1. Heap is a great data structure for sorting, where you can pop off the top in O(1), readjust the heap in O(log n) and thus sorting is O(n log n). 
       </p>
+      <p> Inserting: Put the element in the final position and swap "up" the tree until its parent is larger than it </p>
+      <p> Removing: Swap the top and the last element. Remove the last and swap the top down each larger child </p>
 
       <div class = "column" style= "width: 25%">
         <div class = "card">
-          <h3> Access </h3>
-          <p> O(n) </p>
-        </div>
-      </div>
-
-      <div class = "column" style= "width: 25%">
-        <div class = "card">
-          <h3> Search </h3>
-          <p> O(n) </p>
+          <h3> Insert </h3>
+          <p> O(log n) </p>
         </div>
       </div>
 
       <div class = "column" style = "width: 25%">
         <div class = "card">
-          <h3> Insert / Deletion </h3>
+          <h3> Remove </h3>
+          <p> O(log n) </p>
+        </div>
+      </div>
+
+      <div class = "column" style= "width: 50%">
+        <div class = "card">
+          <h3> Heapify </h3>
+          <p> O(n) </p>
+          <p> <small> Can be done bottom up. Bottom row (2^r) elements move 1 spot, 2^(r-1) move 2, etc which converges to n </small> </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Priority Queue Data Structure !-->
+
+  <div class="row">
+    <div class="card">
+      <h2> Priority Queue </h2>
+      <p> A priority queue is a queue with limited functionality: insert(), top(), and remove() set to be as fast as possible. It is typically implemented with a heap underlying, and come in maxPQ or minPQ variety (for min, heap ordering property is reversed). Data is inserted into the heap and ordered, removed in O(1), and readjusted in O(log n).
+      </p>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Insert </h3>
+          <p> O(log n) </p>
+        </div>
+      </div>
+
+      <div class = "column" style = "width: 25%">
+        <div class = "card">
+          <h3> Top </h3>
           <p> O(1) </p>
         </div>
       </div>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Remove </h3>
+          <p> O(log n) </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Set Data Structure !-->
+
+  <div class="row">
+    <div class="card">
+      <h2> Set </h2>
+      <p> A set is a specialized data structure that deals with the presence or absence of an element. They support functionality: insert(), remove(), and a boolean has(). Sets can be implimented with either an array, linked list, or tree. Sets can be versatile depending on use cases. </p>
+      <p> Fast Insertion: Just add the element to the end of the array. Since data is not ordered search will be O(n) </p>
+      <p> Fast Find (Ordered Set): If data is ordered, insert at the correction ordering position after binary search. However, will require shifting data in the array. Search is O(log n)  </p>
+      <p> Speed can be marginally optimized by simple heuristics (if not using Ordered Set). Move-to-front: upon finding x, swap it with the front element for faster search. Transpose: If found, swap it one spot forward. </p>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Insert </h3>
+          <p> O(1) </p>
+        </div>
+      </div>
+
+      <div class = "column" style = "width: 25%">
+        <div class = "card">
+          <h3> Remove </h3>
+          <p> O(n) </p>
+        </div>
+      </div>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Has </h3>
+          <p> O(n) </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Integer Set Data Structure !-->
+
+  <div class="row">
+    <div class="card">
+      <h2> Integer Set </h2>
+      <p> A form of set that can be really fast for discrete input with a defined range. Create an array of all 0s having the size of the range. If the i-th value occurs, increment the i-th entry in the array. Used in bucket sort. </p>
+      <p> A bit set is the same idea, only the data is stored in the i-th bit (1 and 0 for presence and absence). Saves space by ~8x. </p>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Insert / Remove </h3>
+          <p> O(1) </p>
+        </div>
+      </div>
+
+      <div class = "column" style = "width: 25%">
+        <div class = "card">
+          <h3> Has </h3>
+          <p> O(1) </p>
+        </div>
+      </div>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Space </h3>
+          <p> O(range) </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Map Data Structure !-->
+
+  <div class="row">
+    <div class="card">
+      <h2> Map </h2>
+      <p> A map is a dictionary from a key to a value. used to determine if a node is in a graph or to get a name from an ID. Has functionality insert(K, V), remove(K), get(K). Primitive options area parallel arrays or a linked list of key / value nodes. Hash maps, AVL trees, and treaps are two implementations of a map.</p>
+
+    </div>
+  </div>
+
+  <!-- Hash Data Structure !-->
+
+  <div class="row">
+    <div class="card">
+      <h2> Hash Table (Hash Map) </h2>
+      <p> A hash map is one of the most widely-used data structures. It is a map from keys to values, where the key is "hashed" (put through a function to get a ranged integer) and then stored at that position in an array. This allows for O(1) insertion, deletion, and reading. However, hashing does not fair well for printing ordered data as the hash function can be though of as "random".  </p>
+      <h4> Collisions </h4>
+      <p> Issues arise when two keys are hashed to the same position (bucket). These are callsed "collisions" and are dealt in different ways </p>
+      <p> Separate Chaining: Put a linked list at the bucket and iterate through </p>
+      <p> Linear Probing: Just store the collision value directly after its hashed spot. If there is a collision there, repeat with the next spot until there is an opening. On search, you would searech until encountering an empty spot. Suffers from clustering. </p>
+      <p> Quadratic Probing: Using the same strategy as Linear Probing, though to avoid clustering, looks 1, 4, 9, ... etc steps forward. Hash table should have a prime size to sample all possible spaces </p>
+      <p> Double Hashing: On collesions, a second hash value determines the step. </p>
+      <p> Cookoo Hashing: Hash into one table. If there is a collision, hash into a second table using a second hash function. If there is a collision there, continue to hash back to the first table and repeat. If there takes longer than a specified side, then resuffle the data. </p>
+      <p> Bloom Filter: Use bits and hash a value into a collection of bits. In an array of bits, compute the or of the hashed value and the array of bits. If all bits in a search are true, the key is likely in the set </p> 
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Insert / Remove </h3>
+          <p> O(1) </p>
+        </div>
+      </div>
+
+      <div class = "column" style = "width: 25%">
+        <div class = "card">
+          <h3> Has </h3>
+          <p> O(1) </p>
+        </div>
+      </div>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Space </h3>
+          <p> O(n) </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- AVL Tree Data Structure !-->
+
+  <div class="row">
+    <div class="card">
+      <h2> AVL Tree </h2>
+      <p> An AVL tree is a map and a binary search tree combined. It has the property that at any point in time, the left size and the right size of each node has hights that differ by less than 2. Through a series of rotations, the tree keeps balanced. Since the tree is balanced (depth is O(log n)). The keys are then searched according to a binary search tree, where for any node, the left and the right children are smaller and larger respectively. Rotations are difficult to implement but avoid worst-case O(n) find. </p>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Insert / Remove </h3>
+          <p> O(log n) </p>
+        </div>
+      </div>
+
+      <div class = "column" style = "width: 25%">
+        <div class = "card">
+          <h3> Has </h3>
+          <p> O(log n) </p>
+        </div>
+      </div>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Height </h3>
+          <p> O(log n) </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Treaps Data Structure !-->
+
+  <div class="row">
+    <div class="card">
+      <h2> Treaps </h2>
+      <p> Treaps are a randomized form of a binary search tree. Each node has a user-defined key, and a random priority. The treap contains elements of a BST and a heap, where like a heap, higher priorities are closer to the root node than lower priorities, and keys follow the rule that left children are lesser and right children are larger of each node. Treaps avoid rotations and have expected good runtime. However, is still possible (but unlikely) to have worst case O(n) search. </p>
+
+      <div class = "column" style= "width: 50%">
+        <div class = "card">
+          <h3> Insert / Remove </h3>
+          <p> Expected: O(log n) </p>
+          <p> Worst case: O(n) </p>
+        </div>
+      </div>
+
+      <div class = "column" style = "width: 50%">
+        <div class = "card">
+          <h3> Has </h3>
+          <p> Expected: O(log n) </p>
+          <p> Worst case: O(n) </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Suffix Array Data Structure !-->
+
+  <div class="row">
+    <div class="card">
+      <h2> Suffix Array </h2>
+      <p> It is hard to determine if a string concerns a substring. Solution: store an int that is the part of the string from the int position to the end. Then, we can sort on those int positions. Note though, this sorting step is slow. After then, any new string can be binary searched and the index returned.  </p>
+
+    </div>
+  </div>
+
+    <!-- Disjoint Set Data Structure !-->
+
+  <div class="row">
+    <div class="card">
+      <h2> Disjoint Set (Union Find) </h2>
+      <p> A union find is a powerful data structure to determine of which group a value is in (from a collection of unions). It is made via two parallel arrays. One is the values, one is the group it is in. When a union occurs (a union b), the group of a is set to the group of b, and then each sub-group of a is set to the group of b as well (path conpression). This results in an extremely fast way to determine if two elements are in the same subset. </p>
+
+      <div class = "column" style= "width: 25%">
+        <div class = "card">
+          <h3> Union </h3>
+          <p> O(log* n) </p>
+        </div>
+      </div>
+
+      <div class = "column" style = "width: 25%">
+        <div class = "card">
+          <h3> Find </h3>
+          <p> O(log* n) </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 
     </div>
   </div>
